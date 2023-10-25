@@ -11,20 +11,15 @@ export default function App() {
   return (
     <main className="App">
       { user ?
-          <>
-            <Routes>
-              {/* Route components in here */}
-              <Route path="/orders/new" element={<NewOrderPage user={user} setUser={setUser} />} />
-              <Route path="/orders" element={<OrderHistoryPage />} />
-            </Routes>
-          </>
+          
+      <Routes>
+      {/* Route components in here */}
+      <Route path="/orders/new" element={<NewOrderPage user={user} setUser={setUser} />} />
+      <Route path="/orders" element={<OrderHistoryPage />} />
+      </Routes>
           :
-         
           <HomePage setUser={setUser} />
           
-         
-         
-        
       }
     </main>
   );
