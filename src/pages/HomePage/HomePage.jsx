@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import AuthPage from '../AuthPage/AuthPage';
 export default function HomePage({setUser}) {
-    const [isAuth, setisAuth] =useState(false)
+    const [isAuth, setisAuth] = useState(false)
     return (
         <>
        { isAuth ? 

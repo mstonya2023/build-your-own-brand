@@ -7,12 +7,12 @@ export default function CategoryList({categories, activeCat,  setActiveCat}) {
        className={markCat === activeCat ? 'active' :  '' }
        onClick={() => setActiveCat(markCat)}
        >
-        {markCats}
+        {markCat}
        </li>
 );
 return (
     <ul className="CategoryList">
-
+{markCats}
     </ul>
     );
 }
