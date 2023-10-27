@@ -1,5 +1,6 @@
 import {  useState, useEffect, useRef } from "react";
 import * as itemsAPI from '../../utilities/items-api';
+import * as ordersAPI from '../../utilities/orders-api';
 import './NewOrderPage.css';
 import { Link } from 'react-router-dom';
 // import Logo from '../../components/Logo/Logo';
@@ -10,8 +11,10 @@ import OrderDetail from '../../components/OrderDetail/OrderDetail';
 export default function NewOrderPage({user, setUser}) {
   const [markItems, setmarkItems] = useState([]);
   const [activeCat, setActiveCat] = useState('');
+  const [cart, setCart] = useState(null);
   const categoriesRef = useRef([]);
   console.log(categoriesRef)
+  
   useEffect(function() {
     async function getItems() {
       const items = await itemsAPI.getAll();
@@ -23,7 +26,14 @@ export default function NewOrderPage({user, setUser}) {
     }
     getItems();
   }, []);
-  console.log('NewOrderPage Rendered');
+
+  // Load cart (a cart is the unpaid order for the logged in user)
+  async function getCart() {
+    const cart = await ordersAPI.getCart();
+    setCart(cart);
+  }
+  getCart();
+ 
 return (
   <main className="NewOrderPage">
   <div>NewOrderPage</div>
@@ -40,7 +50,7 @@ return (
   <MarketingList
     markItems={markItems.filter(item => item.category.name === activeCat)}
   />
-  <OrderDetail />
+  <OrderDetail order={cart} />
 </main>
     
     

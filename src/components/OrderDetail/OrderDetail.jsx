@@ -4,7 +4,7 @@ import './OrderDetail.css';
 export default function OrderDetail({ order }) {
   if (!order) return null;
 
-  const markItems = order.markItems.map(item =>
+  const markItems = order.markItem.map(item =>
     <markItem
       markItem={item}
       isPaid={order.isPaid}
