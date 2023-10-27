@@ -11,7 +11,6 @@ export default function OrderDetail({ order }) {
       key={item._id}
     />
   );
-}
 
 return (
   <div className='OrderDetail'>
@@ -21,7 +20,7 @@ return (
         :
         <span>NEW ORDER</span>
       }
-      <span>{newDate(order.updatedAt).toLocalDateString()}</span>
+      {/* <span>{newDate(order.updatedAt).toLocalDateString()}</span> */}
     </div>
     <div className='mark-item-container flex-ctr-ctr flex-col scroll-y'>
       {markItems.length ?
@@ -47,7 +46,7 @@ return (
     </div>
   </div>
 );
-
+    }
  
 
 
