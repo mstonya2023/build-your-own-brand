@@ -1,12 +1,14 @@
+import MarkItem from '../MarkItem/MarkItem';
 import './OrderDetail.css';
 
 //Used to display the details of any order, including the cart (unpaid order)
-export default function OrderDetail({ order }) {
+export default function OrderDetail({ order, handleChangeQty }) {
   if (!order) return null;
 
-  const markItems = order.markItem.map(item =>
-    <markItem
-      markItem={item}
+  const markItems = order && order.lineItems.map(item =>
+    <MarkItem
+    handleChangeQty={handleChangeQty}
+      lineItem={item}
       isPaid={order.isPaid}
       key={item._id}
     />

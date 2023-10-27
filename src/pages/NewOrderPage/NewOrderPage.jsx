@@ -18,22 +18,30 @@ export default function NewOrderPage({user, setUser}) {
   useEffect(function() {
     async function getItems() {
       const items = await itemsAPI.getAll();
-      console.log(items)
       categoriesRef.current = [...new Set (items.map(item => item.category.name))];
       setmarkItems(items);
       setActiveCat(categoriesRef.current[0]);
 
     }
     getItems();
+    // Load cart (a cart is the unpaid order for the logged in user)
+    async function getCart() {
+      const cart = await ordersAPI.getCart();
+      setCart(cart);
+    }
+    getCart();
   }, []);
 
-  // Load cart (a cart is the unpaid order for the logged in user)
-  async function getCart() {
-    const cart = await ordersAPI.getCart();
-    setCart(cart);
+  async function handleAddToCart(itemId) {
+    const updatedCart = await ordersAPI.addItemToCart(itemId)
+  setCart(updatedCart)
   }
-  getCart();
- 
+
+  async function handleChangeQty(itemId, newQty) {
+    const updatedCart = await ordersAPI.setItemQty(itemId, newQty)
+    setCart(updatedCart)
+  }
+
 return (
   <main className="NewOrderPage">
   <div>NewOrderPage</div>
@@ -49,8 +57,9 @@ return (
   </aside>
   <MarketingList
     markItems={markItems.filter(item => item.category.name === activeCat)}
+    handleAddToCart = {handleAddToCart}
   />
-  <OrderDetail order={cart} />
+  <OrderDetail order={cart} handleChangeQty={handleChangeQty} />
 </main>
     
     

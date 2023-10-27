@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import AuthPage from '../AuthPage/AuthPage';
-export default function HomePage({setUser}) {
+export default function HomePage({setUser, user}) {
     const [isAuth, setisAuth] = useState(false)
     return (
         <>
@@ -9,7 +9,7 @@ export default function HomePage({setUser}) {
        :
        <div>
         <h1>Welcome to B.Y.O.B.</h1>
-        <button onClick={()=> setisAuth(true)}>Sign Up/Login</button>
+        {!user && <button onClick={()=> setisAuth(true)}>Sign Up/Login</button>}
        </div> }
        </>
 )

@@ -1,6 +1,10 @@
 import './MarketingListItem.css'
-export default function MarketingListItem({markItem}) {
+export default function MarketingListItem({ markItem, handleAddToCart }) {
     return (
-        <h1>{markItem.name}</h1>
+        <div>
+            <h1>{markItem.name}</h1>
+            <p>Price: ${markItem.price}</p>
+            <button onClick={() => handleAddToCart(markItem._id)}>Add to Cart</button>
+        </div>
     )
 }
