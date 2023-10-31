@@ -2,7 +2,7 @@ import {  useState, useEffect, useRef } from "react";
 import * as itemsAPI from '../../utilities/items-api';
 import * as ordersAPI from '../../utilities/orders-api';
 import './NewOrderPage.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // import Logo from '../../components/Logo/Logo';
 import MarketingList from '../../components/MarketingList/MarketingList';
 import CategoryList from '../../components/CategoryList/CategoryList';
@@ -13,6 +13,7 @@ export default function NewOrderPage({user, setUser}) {
   const [activeCat, setActiveCat] = useState('');
   const [cart, setCart] = useState(null);
   const categoriesRef = useRef([]);
+  const navigate = useNavigate();
   console.log(categoriesRef)
   
   useEffect(function() {
@@ -41,11 +42,15 @@ export default function NewOrderPage({user, setUser}) {
     const updatedCart = await ordersAPI.setItemQty(itemId, newQty)
     setCart(updatedCart)
   }
+  async function handleCheckout() {
+  await ordersAPI.checkout()
+   navigate('/orders');
+  }
 
 return (
   <main className="NewOrderPage">
-  <div>NewOrderPage</div>
-  <aside>
+  {/* <div>NewOrderPage</div> */}
+  
     {/* <Logo /> */}
     <CategoryList
       categories={categoriesRef.current}
@@ -54,12 +59,14 @@ return (
     />
     <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
     {/* <UserLogOut user={user} setUser={setUser} /> */}
-  </aside>
+  
   <MarketingList
     markItems={markItems.filter(item => item.category.name === activeCat)}
     handleAddToCart = {handleAddToCart}
   />
-  <OrderDetail order={cart} handleChangeQty={handleChangeQty} />
+  <OrderDetail order={cart} handleChangeQty={handleChangeQty}
+   handleCheckout={handleCheckout}
+   />
 </main>
     
     

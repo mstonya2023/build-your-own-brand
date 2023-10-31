@@ -2,17 +2,19 @@ import './CategoryList.css';
 
 export default function CategoryList({categories, activeCat,  setActiveCat}) {
     const markCats = categories.map(markCat =>
-       <li
+       <ul
        key={markCat}
        className={markCat === activeCat ? 'active' :  '' }
        onClick={() => setActiveCat(markCat)}
        >
+        <br />
         {markCat}
-       </li>
+       </ul>
 );
 return (
-    <ul className="CategoryList">
+    <div className="CategoryList">
+       
 {markCats}
-    </ul>
+   </div>
     );
 }

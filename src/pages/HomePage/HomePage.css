@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+    font-family: Helvetica;
+}
+
+
+body {
+    background-image: url('../../../images/BG\ UPDATE.png');
+    background-size: cover;
+    
+   
+}
+
+.sign-up{
+    color:#deb473
+}
+
+.build {
+    color: white
+    
+}
+
+h2 {
+    color:#deb473;
+    text-align: left;
+}
+
+
+nav {
+    background-color: white;
+    font-size: large;
+    color: #ac3418
+}
+
+button {
+    background-color: #deb473;
+    justify-items: left;
+
+
+}
+button:hover{
+    
+    background-color:#81483b ;
+   
+}
+
+p {
+    color: white;
+    font-size: larger;
+    text-align: left;
+}
+
+.mark-pack {
+    text-decoration: underline;
+}
+
+.mark-ala-carte {
+    text-decoration: underline;
+}

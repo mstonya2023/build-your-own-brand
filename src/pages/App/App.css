@@ -28,6 +28,17 @@
   color: #61dafb;
 }
 
+.OrderNumber {
+  color:#3f1b2b
+}
+.OrderHistoryPage {
+  color:#deb473
+}
+p.TotalPrice {
+  color:#deb473
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

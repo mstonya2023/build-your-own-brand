@@ -1,0 +1,11 @@
+.MarketingListItem > p{
+    text-align: center;
+}
+.MarketingListItem > h1{
+    text-align: center;
+    color: white;
+}
+.MarketingListItem > button{
+align-items: center;
+    
+}

@@ -16,3 +16,11 @@ export async function setItemQty(itemId, newQty) {
     return sendRequest(`${BASE_URL}/cart/qty`, 'POST', {itemId, newQty})
 
 }
+export async function checkout() {
+    return sendRequest(`${BASE_URL}/cart/checkout`, 'POST',)
+
+}
+export async function getAllOrders() {
+    return sendRequest (BASE_URL)
+
+}

@@ -1,3 +1,5 @@
-.CategoryList {
-    color: white;
+.CategoryList > ul {
+color: white;
+display: flex-end;
+font-size: larger;
 }

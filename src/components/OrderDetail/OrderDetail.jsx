@@ -2,7 +2,7 @@ import MarkItem from '../MarkItem/MarkItem';
 import './OrderDetail.css';
 
 //Used to display the details of any order, including the cart (unpaid order)
-export default function OrderDetail({ order, handleChangeQty }) {
+export default function OrderDetail({ order, handleChangeQty, handleCheckout }) {
   if (!order) return null;
 
   const markItems = order && order.lineItems.map(item =>
@@ -20,7 +20,8 @@ return (
       {order.isPaid ?
         <span>ORDER <span className='smaller'></span>{order.orderId}</span>
         :
-        <span>NEW ORDER</span>
+        <span className='NewOrder'>NEW ORDER</span>
+      
       }
       {/* <span>{newDate(order.updatedAt).toLocalDateString()}</span> */}
     </div>
@@ -34,7 +35,7 @@ return (
               :
               <button
                 className='btn-sm'
-                onClick={() => alert('clicked')}
+                onClick={handleCheckout}
                 disable={!markItems.length}
               >CHECKOUT</button>
             }
