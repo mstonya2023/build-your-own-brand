@@ -25,6 +25,6 @@ can choose how to market their brand. It is a user-centric alternative to provid
 # Next Steps
 
 - Give the user the option to post comments and questions
-- To enhance product features and design for better service
+- To enhance product features and design 
 - To revisit code to ensure all features are rendering at top quality
 - To provide additional services for the user(customer) to choose from
