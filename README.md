@@ -20,7 +20,7 @@ can choose how to market their brand. It is a user-centric alternative to provid
 # Getting Started
 
 [Click to View Project Planning](https://trello.com/b/JjJdOVp8/build-your-own-brand-project-4)
-[Click to Play Connect Four!](https://build-your-own-brand-4c80626c3476.herokuapp.com/)
+[Connect to Build-Your-Own-Brand](https://build-your-own-brand-4c80626c3476.herokuapp.com/)
 
 # Next Steps
 
